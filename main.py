@@ -1,11 +1,9 @@
 import language_tool_python
 
-tool = language_tool_python.LanguageTool('en-US')
+tool = language_tool_python.LanguageTool('en-US', remote_server='https://api.languagetool.org/')
 
 def correct_grammar(text):
-    matches = tool.check(text)
-    corrected_text = language_tool_python.utils.correct(text, matches)
-    return corrected_text
+    return tool.correct(text)
 
 # Chat loop
 print("Grammar Bot (type 'exit' to quit)")
